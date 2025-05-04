@@ -1,0 +1,22 @@
+{
+  "id": "1746052881411",
+  "název": "Full body",
+  "datum": "2025-04-30",
+  "popis": "trenink full body, zaměřený na prsa",
+  "workoutExercises": [
+    {
+      "id": "1746054434204",
+      "exerciseId": "1746053491283",
+      "sets": 3,
+      "repetitions": 10,
+      "weight": 50
+    },
+    {
+      "id": "1746054465472",
+      "exerciseId": "1746053862243",
+      "sets": 2,
+      "repetitions": 8,
+      "weight": 70
+    }
+  ]
+}
