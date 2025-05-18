@@ -1,6 +1,7 @@
 //  import modulů
 
 const express = require('express');
+const cors = require('cors');
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -8,6 +9,7 @@ const path = require('path');
 const app = express();
 
 //  middleware, parsování JSON a základní logování
+app.use(cors({origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
@@ -341,7 +343,7 @@ app.put('/workouts/:workoutId/exercises/:id', async (req, res) => {
             return res.status(400).json({ message: 'Váha musí být číslo 0.1-1000.'});
         }
         workout.workoutExercises[idx] = { id, exerciseId: workout.workoutExercises[idx].exerciseId, sets, repetitions, weight};
-        await writeJson(WORKOUT_DIR, workoutid, workout);
+        await writeJson(WORKOUT_DIR, workoutId, workout);
         console.log(`Upravný cvik ${id} ve workoutu ${workoutId}`);
         res.json(workout.workoutExercises[idx]);
     } catch (err) {
